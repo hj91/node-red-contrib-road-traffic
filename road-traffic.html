@@ -1,0 +1,113 @@
+<!--
+
+Copyright 2023 Bufferstack.IO Analytics Technology LLP, Pune.
+
+Licensed under the GNU General Public License, Version 3.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    https://www.gnu.org/licenses/gpl-3.0.html
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+-->
+
+
+<script type="text/javascript">
+  RED.nodes.registerType("road-traffic", {
+    category: "Bufferstack.IO",
+    color: "#a6bbcf",
+    defaults: {
+      name: { value: "" },
+      length: { value: 1, required: true },
+      width: { value: 10, required: true },
+      isOneWay: { value: false, required: true },
+      bikes: { value: 0, required: true },
+      trucks: { value: 0, required: true },
+      cars: { value: 0, required: true },
+      cycles: { value: 0, required: true },
+      pedestrians: { value: 0, required: true }
+    },
+    inputs: 1,
+    outputs: 1,
+    icon: "font-awesome/fa-car",
+    label: function () {
+      return this.name || "road traffic";
+    },
+    oneditprepare: function () {},
+    oneditsave: function () {},
+    oneditresize: function () {},
+    oneditcancel: function () {}
+  });
+</script>
+
+<script type="text/x-red" data-template-name="road-traffic">
+  <div class="form-row">
+    <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+    <input type="text" id="node-input-name" placeholder="Name">
+  </div>
+  <div class="form-row">
+    <label for="node-input-length">Length (km)</label>
+    <input type="number" id="node-input-length" placeholder="Length" min="0" step="0.1">
+  </div>
+  <div class="form-row">
+    <label for="node-input-width">Width (m)</label>
+    <input type="number" id="node-input-width" placeholder="Width" min="0">
+  </div>
+  <div class="form-row">
+    <label for="node-input-isOneWay">One Way</label>
+    <input type="checkbox" id="node-input-isOneWay">
+  </div>
+  <div class="form-row">
+    <label for="node-input-bikes">Bikes</label>
+    <input type="number" id="node-input-bikes" placeholder="Bikes" min="0">
+  </div>
+  <div class="form-row">
+    <label for="node-input-trucks">Trucks</label>
+    <input type="number" id="node-input-trucks" placeholder="Trucks" min="0">
+  </div>
+  <div class="form-row">
+    <label for="node-input-cars">Cars</label>
+    <input type="number" id="node-input-cars" placeholder="Cars" min="0">
+  </div>
+  <div class="form-row">
+    <label for="node-input-cycles">Cycles</label>
+    <input type="number" id="node-input-cycles" placeholder="Cycles" min="0">
+  </div>
+  <div class="form-row">
+    <label for="node-input-pedestrians">Pedestrians</label>
+    <input type="number" id="node-input-pedestrians" placeholder="Pedestrians" min="0">
+  </div>
+</script>
+
+<script type="text/x-red" data-help-name="road-traffic">
+  <p>A node that estimates the maximum traffic capacity of a road for various types of vehicles, considering their average speeds and sizes.</p>
+  <h3>Input properties</h3>
+  <ul>
+    <li><code>length</code> - The length of the road in kilometers.</li>
+    <li><code>width</code> - The width of the road in meters.</li>
+    <li><code>isOneWay</code> - A boolean indicating if the road is one-way.</li>
+    <li><code>bikes</code> - The number of bikes passing on the road.</li>
+    <li><code>trucks</code> - The number of trucks passing on the road.</li>
+    <li><code>cars</code> - The number of cars passing on the road.</li>
+    <li><code>cycles</code> - The number of cycles passing on the road.</li>
+    <li><code>pedestrians</code> - The number of pedestrians walking on the road.</li>
+  </ul>
+  <h3>Output</h3>
+  <p>The node returns an object with the estimated maximum capacity for each vehicle type.</p>
+  <pre>
+  {
+    "bikes": 1234,
+    "trucks": 567,
+    "cars": 890,
+    "cycles": 345,
+    "pedestrians": 678
+  }
+  </pre>
+</script>
+ 
+
