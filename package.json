@@ -1,0 +1,33 @@
+{
+  "name": "node-red-contrib-road-traffic",
+  "version": "0.0.1",
+  "description": "A Node-RED node for estimating road traffic capacity based on road dimensions, traffic composition, and vehicle speeds.",
+  "homepage": "https://github.com/hj91/node-red-contrib-road-traffic",
+  "bugs": "https://github.com/hj91/node-red-contrib-road-traffic/issues",
+  "license": "GPL-3.0",
+  "author": {
+    "name": "Harshad Joshi",
+    "email": "harshad@bufferstack.io",
+    "url": "https://bufferstack.io"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:hj91/node-red-contrib-road-traffic.git"
+  },
+  "keywords": [
+    "node-red",
+    "traffic",
+    "road-traffic",
+    "Pune",
+    "India",
+    "Transport Analysis",
+    "Roadways",
+    "Road Traffic"
+  ],
+  "node-red": {
+    "nodes": {
+      "traffic": "road-traffic.js"
+    }
+  }
+}
+
