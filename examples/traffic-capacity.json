@@ -1,0 +1,103 @@
+[
+    {
+        "id": "ce32ebd7caefa495",
+        "type": "tab",
+        "label": "traffic_capacity",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "a386a80d816d6e1c",
+        "type": "road-traffic",
+        "z": "ce32ebd7caefa495",
+        "name": "",
+        "length": "45",
+        "width": "5",
+        "isOneWay": true,
+        "bikes": "400",
+        "trucks": "64",
+        "cars": "88",
+        "cycles": "1",
+        "pedestrians": "100",
+        "x": 390,
+        "y": 140,
+        "wires": [
+            [
+                "0be0c36406daccc7"
+            ]
+        ]
+    },
+    {
+        "id": "77a0b07c8b4b4ed1",
+        "type": "inject",
+        "z": "ce32ebd7caefa495",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 140,
+        "wires": [
+            [
+                "a386a80d816d6e1c"
+            ]
+        ]
+    },
+    {
+        "id": "f1e89e77d39c23e3",
+        "type": "debug",
+        "z": "ce32ebd7caefa495",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 780,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "0be0c36406daccc7",
+        "type": "json",
+        "z": "ce32ebd7caefa495",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 570,
+        "y": 140,
+        "wires": [
+            [
+                "f1e89e77d39c23e3"
+            ]
+        ]
+    },
+    {
+        "id": "45c19ec99b572ab8",
+        "type": "comment",
+        "z": "ce32ebd7caefa495",
+        "name": "Sample usage",
+        "info": "(c) Harshad Joshi 2023",
+        "x": 130,
+        "y": 80,
+        "wires": []
+    }
+]
